@@ -1,0 +1,130 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 196 100% 47%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 195 55% 92%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 196 100% 47%;
+
+    --radius: 0.8rem;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 196 100% 47%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-lg;
+  }
+  
+  .glass-panel {
+    @apply bg-white/50 backdrop-blur-md border border-white/20 shadow-md;
+  }
+  
+  .nav-item {
+    @apply px-4 py-2 rounded-full transition-all duration-300 hover:bg-secondary;
+  }
+  
+  .nav-item-active {
+    @apply bg-secondary text-primary font-medium;
+  }
+  
+  .button-primary {
+    @apply px-6 py-2.5 bg-health-600 text-white rounded-full font-medium shadow-md hover:bg-health-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-health-500 focus:ring-offset-2;
+  }
+  
+  .button-secondary {
+    @apply px-6 py-2.5 bg-secondary text-health-700 rounded-full font-medium shadow-sm hover:bg-secondary/80 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2;
+  }
+  
+  .button-outline {
+    @apply px-6 py-2.5 border-2 border-health-500 text-health-600 rounded-full font-medium hover:bg-health-50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-health-500 focus:ring-offset-2;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-health-400 focus:ring-1 focus:ring-health-400 outline-none transition-all duration-300;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  /* Animations for page transitions */
+  .page-enter {
+    @apply animate-fade-in;
+  }
+  
+  .modal-overlay {
+    @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-40 flex items-center justify-center;
+  }
+  
+  .modal-content {
+    @apply w-full max-w-md rounded-2xl bg-white shadow-xl animate-scale-in overflow-hidden;
+  }
+}
